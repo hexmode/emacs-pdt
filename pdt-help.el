@@ -27,6 +27,17 @@
 ;; https://github.com/auto-complete/popup-el
 (require 'popup)
 
+(defcustom pdt-php-manual-url "http://www.php.net/manual/en/"
+  "URL at which to find PHP manual.
+You can replace \"en\" with your ISO language code."
+  :type 'string
+  :group 'pdt)
+
+(defcustom pdt-php-manual-path ""
+  "Path to the directory which contains the PHP manual."
+  :type 'string
+  :group 'pdt)
+
 (provide 'pdt-help)
 
 ;;; pdt-help.el ends here

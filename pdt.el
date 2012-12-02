@@ -1,6 +1,6 @@
 ;;; pdt.el --- PHP Development Tools for GNU Emacs
 ;;
-;; Copyright (C) 2012 neutrico.pl 
+;; Copyright (C) 2012 neutrico.pl
 ;;
 ;; Name: Emacs PDT
 ;; Author: Marcin Antczak <marcin.antczak@neutrico.pl>
@@ -51,6 +51,25 @@
 (defun pdt-setup()
 
 )
+
+(defun pdt-test ()
+  (message "test"))
+
+(defun pdt-init-minor-keymap ()
+  (let ((map (make-sparse-keymap)))
+    (when pdt-use-menu
+      (easy-menu-define pdt-minor-mode-menu
+	map
+	"Menu used when `pdt-mode' is active."
+	'("PDT"
+	  "----"
+	  "test"
+	  ["Test" pdt-test
+	    :help "PDT test"]
+)))))
+
+(defvar pdt-minor-mode-map (pdt-init-minor-keymap)
+  "The keymap used when `pdt-mode' is active.")
 
 (define-minor-mode pdt-mode
   "PHP Development Tools minor mode"
