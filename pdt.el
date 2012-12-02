@@ -40,6 +40,13 @@
   :type '(repeat symbol)
   :group 'pdt)
 
+(defcustom pdt-use-menu 'abbreviate
+  "Display a PDT menu in the menu bar."
+  :type '(choice (const :tag "Full"  full)
+                 (const :tag "Abbreviate" abbreviate)
+                 (const :tag "No menu" nil))
+  :group 'pdt)
+
 ;;;; Internal variables
 
 ;;;; PDT commands
