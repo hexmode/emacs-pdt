@@ -28,16 +28,18 @@
 
 (require 'cl)
 (require 'easymenu)
-;; (require 'help-mode)
+(require 'help-mode)
 ;; (require 'pdt-help)
 
-;;;; Global stuff
+;;---------------------------------------------------------------------------
+;; Global stuff
 
 
-;;;; Customization
+;;---------------------------------------------------------------------------
+;; Customization
 
 (defgroup pdt nil
-  "pdt"
+  "PHP Development Tools"
   :group 'editing
   :prefix "pdt-")
 
@@ -70,11 +72,13 @@ Use the command `pdt-minor-mode' to toggle or set this variable.")
     ["Test" pdt-test
      :help "PDT test"]))
 
-;;;; PDT commands
+;;---------------------------------------------------------------------------
+;; PDT commands
 (defun pdt-test ()
   (message "test"))
 
-;;;; PDT mode
+;;---------------------------------------------------------------------------
+;; PDT mode
 
 (define-minor-mode pdt-minor-mode
   "PHP Development Tools minor mode"
@@ -84,9 +88,12 @@ Use the command `pdt-minor-mode' to toggle or set this variable.")
   :keymap pdt-minor-mode-map
   (if pdt-minor-mode
       (progn
-	(easy-menu-add pdt-minor-mode-menu)
-)))
+	(easy-menu-add pdt-minor-mode-menu))))
 
 (provide 'pdt)
 
 ;;; pdt.el ends here
+;; Local Variables:
+;; coding: utf-8
+;; byte-compile-warnings: (not cl-functions)
+;; End:
