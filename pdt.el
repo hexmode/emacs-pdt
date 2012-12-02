@@ -23,9 +23,33 @@
 ;;
 ;;; Code:
 
-(require 'pdt-help)
+(eval-when-compile
+  (require 'cl))
 
+(require 'pdt-help)
 (require 'easymenu)
+
+;;;; Global stuff
+
+
+;;;; Customization
+
+(defcustom pdt-modes
+  '(php-mode)
+  "Major modes `pdt-mode' can run on."
+  :type '(repeat symbol)
+  :group 'pdt)
+
+;;;; Internal variables
+
+;;;; PDT commands
+
+;;;; PDT mode
+
+
+(defun pdt-setup()
+
+)
 
 (define-minor-mode pdt-mode
   "PHP Development Tools minor mode"
