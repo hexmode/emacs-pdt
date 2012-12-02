@@ -56,6 +56,8 @@
   :group 'pdt)
 
 ;;;; Internal variables
+(defvar pdt--minor-mode-menu nil
+  "Holds the PDT menu.")
 
 ;;;; PDT commands
 
@@ -70,10 +72,11 @@
 (defun pdt-test ()
   (message "test"))
 
-(defun pdt-init-minor-keymap ()
+(defun pdt--init-minor-keymap ()
+  "Set up the `pdt-mode' keymap."
   (let ((map (make-sparse-keymap)))
     (when pdt-use-menu
-      (easy-menu-define pdt-minor-mode-menu
+      (easy-menu-define pdt--minor-mode-menu
 	map
 	"Menu used when `pdt-mode' is active."
 	'("PDT"
@@ -83,16 +86,16 @@
 	    :help "PDT test"]
 )))))
 
-(defvar pdt-minor-mode-map (pdt-init-minor-keymap)
+(defvar pdt-minor-mode-map (pdt--init-minor-keymap)
   "The keymap used when `pdt-mode' is active.")
 
-(define-minor-mode pdt-mode
+(define-minor-mode pdt-minor-mode
   "PHP Development Tools minor mode"
   nil
   :lighter " PDT"
   :keymap pdt-minor-mode-map
   :group 'pdt
-  (if pdt-mode
+  (if pdt-minor-mode
       (progn
 	(pdt-setup))))
 
