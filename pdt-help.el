@@ -33,6 +33,11 @@ You can replace \"en\" with your ISO language code."
   :type 'string
   :group 'pdt)
 
+(defcustom pdt-manual-search-url "http://www.php.net/"
+  "URL at which to search for documentation on a word."
+  :type 'string
+  :group 'pdt)
+
 (defcustom pdt-php-manual-path ""
   "Path to the directory which contains the PHP manual."
   :type 'string

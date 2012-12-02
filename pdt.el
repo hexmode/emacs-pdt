@@ -23,6 +23,9 @@
 ;;
 ;;; Code:
 
+(defconst pdt-mode-version-number "0.0.1"
+  "PDT version number.")
+
 (eval-when-compile
   (require 'cl))
 
@@ -47,6 +50,11 @@
                  (const :tag "No menu" nil))
   :group 'pdt)
 
+(defcustom pdt-mode-hook nil
+  "List of functions to be executed on entry to `pdt-mode'."
+  :type 'hook
+  :group 'pdt)
+
 ;;;; Internal variables
 
 ;;;; PDT commands
@@ -56,7 +64,7 @@
 
 
 (defun pdt-setup()
-
+  (run-hooks 'pdt-mode-hook)
 )
 
 (defun pdt-test ()
