@@ -1,3 +1,6 @@
 *** TODO Create popup overlays appearing on mouse over with function help and parsed doc info.
 *** TODO Integrate flymake with fringe to show errors and warnings with bitmap symbol on fringe (just like in Eclipse)
 *** TODO Add custom context menu on right mouse on fringe to enable/disable linum-mode, indent code etc.
+*** TODO Take a look at semantic Highlight func mode and try to implement simmilar behavior in PHP
+*** TODO Implement dynamic code completion with functions parsed from selected external libraries ie. Wordpress or Drupal
+*** TODO Implement indentation styles PEAR, Wordpress, Drupal
