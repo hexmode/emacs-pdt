@@ -29,13 +29,19 @@
 (eval-when-compile
   (require 'cl))
 
-(require 'pdt-help)
 (require 'easymenu)
+(require 'help-mode)
+(require 'pdt-help)
 
 ;;;; Global stuff
 
 
 ;;;; Customization
+
+(defgroup pdt nil
+  "pdt"
+  :group 'editing
+  :prefix "pdt-")
 
 (defcustom pdt-modes
   '(php-mode)
