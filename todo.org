@@ -1,1 +1,3 @@
 *** TODO Create popup overlays appearing on mouse over with function help and parsed doc info.
+*** TODO Integrate flymake with fringe to show errors and warnings with bitmap symbol on fringe (just like in Eclipse)
+*** TODO Add custom context menu on right mouse on fringe to enable/disable linum-mode, indent code etc.
