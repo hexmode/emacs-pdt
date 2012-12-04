@@ -30,7 +30,7 @@
 (require 'easymenu)
 (require 'help-mode)
 (require 'pdt-doc)
-;; (require 'pdt-help)
+(require 'pdt-help)
 
 ;;---------------------------------------------------------------------------
 ;; Global stuff
@@ -72,10 +72,8 @@ Use the command `pdt-minor-mode' to toggle or set this variable.")
   '("PDT"
     ["Test" pdt-test
      :help "PDT test"]
-	["Search documentation" pdt-search-documentation
-	 :help "Online PHP documentation"]
-	["Browse manual" pdt-browse-manual
-	 :help "Browse PHP manual"]
+	;; ["Search documentation" pdt-search-documentation
+	;;  :help "Online PHP documentation"]
 ))
 
 ;;---------------------------------------------------------------------------

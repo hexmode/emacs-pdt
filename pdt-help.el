@@ -33,7 +33,7 @@ You can replace \"en\" with your ISO language code."
   :type 'string
   :group 'pdt)
 
-(defcustom pdt-manual-search-url "http://www.php.net/"
+(defcustom pdt-php-manual-search-url "http://www.php.net/"
   "URL at which to search for documentation on a word."
   :type 'string
   :group 'pdt)
@@ -43,8 +43,13 @@ You can replace \"en\" with your ISO language code."
   :type 'string
   :group 'pdt)
 
+;; todo - replace this with default menu-item syntax and add Search in submenu and Browse in section
+
+(easy-menu-add-item nil '("Help") ["Browse PHP manual" pdt-browse-manual t])
+(easy-menu-add-item nil '("Help") ["Search PHP documentation" pdt-search-documentation t])
+
 (defun pdt-search-local-documentation ()
-  "Search the local PHP documentation (i.e. in `pdt-manual-path')
+  "Search the local PHP documentation (i.e. in `pdt-php-manual-path')
 for the word at point.  The function returns t if the requested
 documentation exists, and nil otherwise."
   (interactive)
@@ -52,7 +57,7 @@ documentation exists, and nil otherwise."
                                 (expand-file-name
                                  (format "function.%s.html"
                                          (replace-regexp-in-string "_" "-" name))
-                                 pdt-manual-path)))
+                                 pdt-php-manual-path)))
     (let ((doc-file (pdt-function-file-for (current-word))))
       (and (file-exists-p doc-file)
            (browse-url doc-file)
@@ -61,15 +66,15 @@ documentation exists, and nil otherwise."
 ;; Define function documentation function
 (defun pdt-search-documentation ()
   "Search PHP documentation for the word at point.  If
-`pdt-manual-path' has a non-empty string value then the command
+`pdt-php-manual-path' has a non-empty string value then the command
 will first try searching the local documentation.  If the
 requested documentation does not exist it will fallback to
 searching the PHP website."
   (interactive)
   (flet ((pdt-search-web-documentation ()
-                                       (browse-url (concat pdt-search-url (current-word)))))
-    (if (and (stringp pdt-manual-path)
-             (not (string= pdt-manual-path "")))
+                                       (browse-url (concat pdt-php-manual-search-url (current-word)))))
+    (if (and (stringp pdt-php-manual-path)
+             (not (string= pdt-php-manual-path "")))
         (or (pdt-search-local-documentation)
             (pdt-search-web-documentation))
       (pdt-search-web-documentation))))
@@ -78,12 +83,12 @@ searching the PHP website."
 (defun pdt-browse-manual ()
   "Bring up manual for PHP."
   (interactive)
-  (browse-url pdt-manual-url))
+  (browse-url pdt-php-manual-url))
 
 ;; Define shortcut
-(define-key pdt-mode-map
-  "\C-c\C-f"
-  'pdt-search-documentation)
+;; (define-key pdt-minor-mode-map
+;;   "\C-c\C-f"
+;;   'pdt-search-documentation)
 
 (provide 'pdt-help)
 
