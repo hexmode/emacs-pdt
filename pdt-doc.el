@@ -42,8 +42,8 @@
   "Default license to insert in doc blocks."
   :group 'php-doc
 ;;  :type '(string :tag "License"))
-  :type '(choice (const :tag "GPL-2.0") (const :tag "GPL-3.0")
-				 string :tag "License"))
+  :type '(choice string :tag "License" (const :tag "GPL-2.0" gpl2)
+				 (const :tag "GPL-3.0" gpl3)))
 
 
 (provide 'pdt-doc)
