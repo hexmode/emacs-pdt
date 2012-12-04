@@ -29,6 +29,7 @@
 (require 'cl)
 (require 'easymenu)
 (require 'help-mode)
+(require 'pdt-doc)
 ;; (require 'pdt-help)
 
 ;;---------------------------------------------------------------------------
