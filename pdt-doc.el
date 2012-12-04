@@ -33,4 +33,17 @@
   :group 'pdt-doc
   :type '(cons (string :tag "Name") (string :tag "Email Address")))
 
+(defcustom pdt-doc-default-copyright nil
+  "Default copyright to insert in doc blocks."
+  :group 'pdt-doc
+  :type '(string :tag "Copyright"))
+
+(defcustom php-doc-default-license nil
+  "Default license to insert in doc blocks."
+  :group 'php-doc
+;;  :type '(string :tag "License"))
+  :type '(choice (const :tag "GPL-2.0") (const :tag "GPL-3.0")
+				 string :tag "License"))
+
+
 (provide 'pdt-doc)
