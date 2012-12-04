@@ -71,7 +71,12 @@ Use the command `pdt-minor-mode' to toggle or set this variable.")
   "Menu used when `pdt-mode' is active."
   '("PDT"
     ["Test" pdt-test
-     :help "PDT test"]))
+     :help "PDT test"]
+	["Search documentation" pdt-search-documentation
+	 :help "Online PHP documentation"]
+	["Browse manual" pdt-browse-manual
+	 :help "Browse PHP manual"]
+))
 
 ;;---------------------------------------------------------------------------
 ;; PDT commands

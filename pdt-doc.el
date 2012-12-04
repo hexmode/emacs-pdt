@@ -38,12 +38,42 @@
   :group 'pdt-doc
   :type '(string :tag "Copyright"))
 
-(defcustom php-doc-default-license nil
+(defcustom pdt-doc-default-license nil
   "Default license to insert in doc blocks."
-  :group 'php-doc
-;;  :type '(string :tag "License"))
-  :type '(choice string :tag "License" (const :tag "GPL-2.0" gpl2)
-				 (const :tag "GPL-3.0" gpl3)))
+  :group 'pdt-doc
+  :type '(string :tag "License"))
 
+(defcustom pdt-doc-default-version nil
+  "Default version string to insert in doc blocks."
+  :group 'pdt-doc
+  :type '(string :tag "Version"))
+
+(defcustom pdt-doc-default-php-version nil
+  "Default PHP version to insert in doc blocks."
+  :group 'pdt-doc
+  :type '(string :tag "PHP Version"))
+
+(defcustom pdt-doc-default-link nil
+  "Default link required by PEAR standard."
+  :group 'pdt-doc
+  :type '(string :tag "Link"))
+
+(defcustom pdt-doc-default-category ""
+  "Default category required by the PEAR standard.  May be a
+function name."
+  :group 'pdt-doc
+  :type '(string :tag "Category"))
+
+(defcustom pdt-doc-default-package ""
+  "Default package required by the PEAR standard.  May be a
+function name."
+  :group 'pdt-doc
+  :type '(string :tag "Package"))
+
+(defcustom pdt-doc-default-subpackage ""
+  "Default subpackage required by the PEAR standard.  May be a
+function name."
+  :group 'pdt-doc
+  :type '(string :tag "Subpackage"))
 
 (provide 'pdt-doc)
