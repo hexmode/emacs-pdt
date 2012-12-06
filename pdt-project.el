@@ -1,4 +1,4 @@
-;;; pdt.el --- PHP Development Tools for GNU Emacs
+;;; pdt-project.el --- Create/manage PHP projects with EDE.
 ;;
 ;; Copyright (C) 2012 neutrico.pl
 ;;
@@ -19,7 +19,19 @@
 ;;
 ;;; Commentary:
 ;;
-;; This package provides tolls for PHP development.
+;; This package provides tools for PHP development.
+;;
+;; pdt-project.el is a part of Emacs PDT suite and is used for setting
+;; various types of PHP related project with tight EDE integration.
+;;
+;; Currently supported project types are:
+;; - PHP project
+;; - WordPress Theme development project
+;; - WordPress Plugin development project
+;; - Drupal development project
+;;
+;; @todo - integrate this module with Eclipse and Eclim project
+;; 
 ;;
 ;;; Code:
 

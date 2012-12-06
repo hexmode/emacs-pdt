@@ -1,5 +1,29 @@
-;;; pdt-ac.el --- PHP Development Tools for GNU Emacs
+;;; pdt-ac.el --- Integrates Emacs PDT with auto-complete mode.
+;;
+;; Copyright (C) 2012 neutrico.pl
+;;
+;; Name: Emacs PDT
+;; Author: Marcin Antczak <marcin.antczak@neutrico.pl>
+;; Version: 0.0.1
+;; Keywords: php
+;;
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of
+;; the License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be
+;; useful, but WITHOUT ANY WARRANTY; without even the implied
+;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+;; PURPOSE.  See the GNU General Public License for more details.
+;;
+;;; Commentary:
+;;
+;; This package provides tools for PHP development.
+;;
+;;; Code:
 
-;; @todo extend auto-complete mode with candidates source
-;; based on php and dynamically generated functions list
+(require 'auto-complete)
 
+
+(provide 'ac-emacs-pdt-source)

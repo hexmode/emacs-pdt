@@ -1,4 +1,4 @@
-;;; pdt.el --- PHP Development Tools for GNU Emacs
+;;; pdt-doc.el --- PHP Doc support.
 ;;
 ;; Copyright (C) 2012 neutrico.pl
 ;;
@@ -19,7 +19,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This package provides tolls for PHP development.
+;; This package provides tools for PHP development.
 ;;
 ;;; Code:
 

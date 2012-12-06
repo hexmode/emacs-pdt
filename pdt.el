@@ -19,7 +19,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This package provides tolls for PHP development.
+;; This package provides tools for PHP development.
 ;;
 ;;; Code:
 
