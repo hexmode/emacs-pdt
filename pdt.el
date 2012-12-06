@@ -31,6 +31,7 @@
 (require 'help-mode)
 (require 'pdt-doc)
 (require 'pdt-help)
+(require 'pdt-project)
 
 ;;---------------------------------------------------------------------------
 ;; Global stuff
