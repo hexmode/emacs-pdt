@@ -4,3 +4,5 @@
 *** TODO Take a look at semantic Highlight func mode and try to implement simmilar behavior in PHP
 *** TODO Implement dynamic code completion with functions parsed from selected external libraries ie. Wordpress or Drupal
 *** TODO Implement indentation styles PEAR, Wordpress, Drupal
+*** TODO Implement zupport for Zend Framework projects.
+*** TODO Integrate with VC. Use Magit as option for git repositories.
