@@ -89,6 +89,8 @@ Use the command `pdt-minor-mode' to toggle or set this variable.")
   "PHP Development Tools minor mode"
   nil
   :group 'pdt
+  :global t
+;;  :init-value
   :lighter " PDT"
   :keymap pdt-minor-mode-map
   (if pdt-minor-mode
