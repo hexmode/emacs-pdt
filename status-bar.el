@@ -69,7 +69,7 @@
 Define this locally to override the global status bar.")
 
 
-(defun powerbar-setup ()
+(defun status-bar-setup ()
   (message "status-bar")
 )
 
