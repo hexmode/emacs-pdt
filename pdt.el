@@ -1,12 +1,10 @@
 ;;; pdt.el --- A better PHP mode with Zend Framework 1 support.
 
-;; Version: 2.1
-;; Created: 8-25-2009
-;; Copyright © 2009 Brian Zwahr
-;; Author(s):
-;; Michael Dwyer <mdwyer@ehtech.in>
-;; Brian Zwahr <echosa@gmail.com>
-
+;; Version: 0.0.1
+;; Created: 2013.08.17
+;; Copyright © 2013 Marcin Antczak
+;; Author: Marcin Antczak <marcin.antczak@neutrico.pl>
+;;
 ;; *************************************************************************
 
 ;;; *****
@@ -29,9 +27,6 @@
 ;; Keybindings:
 ;; The PDT menu can be used to call most functions.
 ;; Use C-h m from a pdt buffer to view the keybindings.
-
-;; View the README for more details. It can be found at
-;; https://github.com/echosa/pdt
 
 ;; *************************************************************************
 
