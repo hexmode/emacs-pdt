@@ -1,4 +1,4 @@
-;;; php+-mode.el --- A better PHP mode with Zend Framework 1 support.
+;;; pdt.el --- A better PHP mode with Zend Framework 1 support.
 
 ;; Version: 2.1
 ;; Created: 8-25-2009
@@ -27,7 +27,7 @@
 ;; (pdt-setup)
 
 ;; Keybindings:
-;; The PHP+ menu can be used to call most functions.
+;; The PDT menu can be used to call most functions.
 ;; Use C-h m from a pdt buffer to view the keybindings.
 
 ;; View the README for more details. It can be found at
@@ -81,7 +81,7 @@
             (setq php-file-patterns-temp (cdr php-file-patterns-temp)))))
  :group 'pdt)
 
-(defcustom php+-default-face 'default
+(defcustom pdt-default-face 'default
   "Default face in `pdt' buffers."
   :type 'face
   :group 'pdt)
@@ -192,8 +192,8 @@ revert open pdt source code file buffers. "
         (when (or (not only-revert-source) (eq major-mode 'emacs-lisp-mode))
           (revert-buffer t t))))
     (switch-to-buffer rb))
-  (php+-define-keys)
-  (php+-define-menu))
+  (pdt-define-keys)
+  (pdt-define-menu))
 
 (defun pdt-source-line-count ()
   "This function returns the number of lines of code that make up
@@ -216,7 +216,7 @@ pdt, not including unittests or bundled packages."
 ;;; ***************
 ;;; Keymap and Menu
 ;;; ***************
-(defun php+-define-keys ()
+(defun pdt-define-keys ()
   (define-key pdt-map "\C-cba" 'php-format-break-at-assignment-operators)
   (define-key pdt-map "\C-cbo" 'php-format-break-at-operators)
   (define-key pdt-map "\C-cbs" 'php-format-break-statement)
@@ -304,402 +304,402 @@ pdt, not including unittests or bundled packages."
   (define-key pdt-map "\C-c\C-f" 'php-search-documentation)
 )
 
-(defun php+-define-menu ()
+(defun pdt-define-menu ()
   (define-key pdt-map
-    [menu-bar php+]
-    (cons "PHP+" (make-sparse-keymap "PHP+")))
+    [menu-bar pdt]
+    (cons "PDT" (make-sparse-keymap "PDT")))
 
-  (define-key (lookup-key pdt-map [menu-bar php+])
+  (define-key (lookup-key pdt-map [menu-bar pdt])
     [create]
     (cons "Create/Open" (make-sparse-keymap "Create")))
-  (define-key (lookup-key pdt-map [menu-bar php+ create])
+  (define-key (lookup-key pdt-map [menu-bar pdt create])
     [module]
     '("Module" . zf-create-module))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [controller]
     '("Controller" . zf-controller)
     'module)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [view-via]
     '("View Via Action" . zf-view-script-via-controller-action)
     'controller)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [view]
     '("View" . zf-view-script)
     'view-via)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [sep1]
     '("--single-line")
     'view)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [model]
     '("Model" . zf-model)
     'sep1)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [dbtable]
     '("Database Table Model" . zf-dbtable-model)
     'model)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [form]
     '("Form" . zf-form)
     'dbtable)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [sep2]
     '("--single-line")
     'form)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [bootstrap]
     '("Bootstrap" . zf-bootstrap)
     'sep2)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [class-file]
     '("Class" . zf-class)
     'bootstrap)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [interface-file]
     '("Interface" . zf-interface)
     'class-file)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [sep4]
     '("--single-line")
     'interface-file)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [config]
     '("Config" . zf-config)
     'sep4)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [open-config]
     '("Open application.ini" . zf-open-application-config)
     'config)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [sep3]
     '("--single-line")
     'open-config)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ create])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt create])
     [function]
     '("Jump to Function" . php-jump-to-function)
     'sep3)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [insert]
     (cons "Insert" (make-sparse-keymap "Insert"))
     'create)
-  (define-key (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key (lookup-key pdt-map [menu-bar pdt insert])
     [action]
     '("Action" . zf-insert-action))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [method]
     '("Method" . zf-insert-method)
     'action)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [constant]
     '("Constant" . zf-insert-constant)
     'method)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [property]
     '("Property" . zf-insert-property)
     'constant)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [class]
     '("Class" . zf-insert-class)
     'property)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [interface]
     '("Interface" . zf-insert-interface)
     'class)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [library]
     `("Library" . ,(make-sparse-keymap "Library"))
     'interface)
-  (define-key (lookup-key pdt-map [menu-bar php+ insert library])
+  (define-key (lookup-key pdt-map [menu-bar pdt insert library])
     [library-class]
     '("Class" . zf-library-class))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert library])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert library])
     [library-interface]
     '("Interface" . zf-library-interface)
     'library-class)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [dump]
     '("Dump" . zf-insert-dump)
     'library)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ insert])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt insert])
     [dump-die]
     '("Dump and Die" . zf-insert-dump-and-die)
     'dump)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [edit]
     (cons "Edit" (make-sparse-keymap "Edit"))
     'insert)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [refactor]
     `("Refactor" . ,(make-sparse-keymap "Refactor"))
     'edit)
-  (define-key (lookup-key pdt-map [menu-bar php+ edit refactor])
+  (define-key (lookup-key pdt-map [menu-bar pdt edit refactor])
     [move-thing]
     '("Move Thing to Buffer" . php-refactor-move-thing-to-buffer))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit refactor])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit refactor])
     [move-all-things]
     '("Move All Things in Class/Interface to Buffer" .
       php-refactor-move-all-things-in-class/interface-to-buffer)
     'move-thing)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit refactor])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit refactor])
     [rearrange-current]
     '("Rearrange Current Thing" . php-rearrange-current)
     'move-all-things)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit refactor])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit refactor])
     [rearrange-innards]
     '("Rearrange Innards" . php-rearrange-innards)
     'rearrange-current)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [break]
     `("Break" . ,(make-sparse-keymap "Break"))
     'refactor)
-  (define-key (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key (lookup-key pdt-map [menu-bar pdt edit break])
     [break-current]
     '("Current Thing" . php-format-break-current))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-class/interface]
     '("Current Class/Interface" . php-format-break-class/interface)
     'break-current)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-statement]
     '("Statement" . php-format-break-statement) 'break-class/interface)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-string]
     '("String" . php-format-break-string) 'break-statement)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-at-assignment-operators]
     '("At Assignment Operators" . php-format-break-at-assignment-operators)
     'break-string)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-at-operators]
     '("At Operators" . php-format-break-at-operators)
     'break-at-assignment-operators)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-at-concats]
     '("At Concats" . php-format-break-at-concats) 'break-at-operators)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-at-commas]
     '("At Commas" . php-format-break-at-commas) 'break-at-concats)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit break])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit break])
     [break-at-arrows]
     '("At Arrows" . php-format-break-at-arrows) 'break-at-commas)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [mark-current]
     '("Mark Current Thing" . php-mark-current) 'break)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [kill-current]
     '("Kill Current Thing" . php-kill-current) 'mark-current)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [yank-killed]
     '("Yank Killed Thing" . php-yank) 'kill-current)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [kill-sexp-innard]
     '("Kill Current Sexp Innard" . php-kill-sexp-innard)
     'yank-killed)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [cleanup-script]
     '("Clean Up Script" . php-format-clean-up-script)
     'kill-sexp-innard)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [remove-this-concat]
     '("Remove Single Concatenation" . php-remove-this-concat)
     'cleanup-script)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [implode-concat]
     '("Implode This Concatenation" . php-implode-concat)
     'remove-this-concat)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [change-string-quotes]
     '("Toggle String Quoting" . php-change-string-quotes)
     'implode-concat)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [change-string<->doc]
     '("Toggle String/Doc" . php-change-string<->doc)
     'change-string-quotes)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [change-bare-html<->heredoc]
     '("Toggle HTML/Heredoc" . php-change-bare-html<->heredoc)
     'change-string<->doc)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [combine-scripts]
     '("Combine Consecutive Scripts" . php-combine-scripts)
     'change-short-tags)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [align-on]
     '("Align On" . align-on)
     'combine-scripts)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [modify-method]
     '("Modify Thing" . php-modify-thing)
     'align-on)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ edit])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt edit])
     [modify-method-args]
     '("Modify Method Arguments" . php-modify-method-argument)
     'modify-method)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [jump]
     '("Jump to Thing" . php-jump-to-thing)
     'edit)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [sep1]
     '("--single-line")
     'edit)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [project]
     (cons "Project" (make-sparse-keymap "Project"))
     'sep1)
-  (define-key (lookup-key pdt-map [menu-bar php+ project])
+  (define-key (lookup-key pdt-map [menu-bar pdt project])
     [show-dir]
     '("Show Project Directory" . php-project-show-directory))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [create-dir]
     '("Create Project Directory" . zf-create-directory-structure)
     'show-dir)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [dired]
     '("Open Project Directory in Dired" . php-project-dired-directory)
     'create-dir)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [project-close]
     '("Close Project" . php-project-close)
     'dired)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [project-add]
     '("Add Project" . php-project-add)
     'project-close)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [project-remove]
     '("Remove Project" . php-project-remove)
     'project-add)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [php-vc-dir]
     '("Project Directory VC" . php-project-vc-dir)
     'project-remove)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ project])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt project])
     [customize]
     '("Customize Projects" . php-project-customize)
     'php-vc-dir)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [tags]
     (cons "Tags" (make-sparse-keymap "Tags"))
     'project)
-  (define-key (lookup-key pdt-map [menu-bar php+ tags])
+  (define-key (lookup-key pdt-map [menu-bar pdt tags])
     [create]
     '("Create Tags File" . php-create-tag-file))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ tags])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt tags])
     [create-with-dirs]
     '("Create Tags File With Extra Directories" . php-create-tag-file-with-dirs)
     'create)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ tags])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt tags])
     [load]
     '("Load Tags File" . load-tags)
     'create-with-dirs)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ tags])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt tags])
     [customize]
     '("Customize Tags" . php-tags-customize)
     'load)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [test]
     (cons "Test" (make-sparse-keymap "Test"))
     'tags)
-  (define-key (lookup-key pdt-map [menu-bar php+ test])
+  (define-key (lookup-key pdt-map [menu-bar pdt test])
     [compile]
     '("Compile" . php-compile))
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [test-full-project]
     '("Test Full Project" . php-test-full-project)
     'compile)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [compile-again]
     '("Run Test Again" . php-compile-again)
     'test-full-project)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [lint]
     '("PHP Lint" . php-lint)
     'compile-again)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [lint-all]
     '("PHP Lint All" . php-lint-all)
     'lint)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpcs]
     '("PHPCS" . phpcs)
     'lint-all)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpcs-all]
     '("PHPCS All" . phpcs-all)
     'phpcs)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpmd]
     '("PHPMD" . phpmd)
     'phpcs-all)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpmd-all]
     '("PHPMD All" . phpmd-all)
     'phpmd)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpunit]
     '("PHPUnit" . phpunit)
     'phpmd-all)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpunit-all]
     '("PHPUnit All" . phpunit-all)
     'phpunit)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpunit-single]
     '("PHPUnit Single Test" . phpunit-single-test)
     'phpunit-all)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpunit-open]
     '("Open PHPUnit Config" . php-project-open-phpunit-config)
     'phpunit-single)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [phpunit-logging]
     '("Toggle PHPUnit Logging" . phpunit-toggle-logging)
     'phpunit-open)
-  (define-key-after (lookup-key pdt-map [menu-bar php+ test])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt test])
     [customize]
     '("Customize Testing" . php-test-customize)
     'phpunit-logging)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [sep2]
     '("--single-line")
     'test)
 
-  (define-key-after (lookup-key pdt-map [menu-bar php+])
+  (define-key-after (lookup-key pdt-map [menu-bar pdt])
     [customize]
-    '("Customize Php+ Mode" . pdt-customize)
+    '("Customize Pdt Mode" . pdt-customize)
     'sep2)
-  (define-key pdt-map [menu-bar php+ search-documentation]
+  (define-key pdt-map [menu-bar pdt search-documentation]
     '("Search documentation" . php-search-documentation))
 )
 
-(defun php+-set-keymap-and-menu ()
+(defun pdt-set-keymap-and-menu ()
   (setq pdt-map (make-sparse-keymap))
-  (php+-define-keys)
-  (php+-define-menu))
+  (pdt-define-keys)
+  (pdt-define-menu))
 
 (unless pdt-map
-  (php+-set-keymap-and-menu))
+  (pdt-set-keymap-and-menu))
 
 ;;; *******
 ;;; pdt
 ;;; *******
 (define-derived-mode pdt c-mode (concat
-                                     "php+"
+                                     "pdt"
                                      (when (and
                                             pdt-show-project-in-modeline
                                             (php-project-nickname))
